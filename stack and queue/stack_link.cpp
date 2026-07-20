@@ -4,6 +4,7 @@
 using namespace std;
 class mylinkStack
 {
+    //节点构造
     struct Node
     {
         int val;
@@ -14,6 +15,7 @@ class mylinkStack
 
         }
     };
+
     Node*head;
     int size;
 
@@ -34,6 +36,7 @@ public:
         newNode->next = head->next;
         head = newNode;
         size++;
+        //作为栈顶
     }
     void pop()
     {
