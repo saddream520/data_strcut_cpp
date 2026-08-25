@@ -25,7 +25,7 @@ public:
     MylinkList()
     {
         head =new Node(0);
-        head = tail;
+        tail = head;
         size = 0;
     }
     ~MylinkList()
@@ -97,7 +97,7 @@ public:
         {
             p = p->next;
         }
-        int delete_val =p->val;
+        int delete_val =tail->val;
         delete tail;
         p->next = nullptr;
         tail = p;
