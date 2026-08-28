@@ -16,6 +16,7 @@ public:
     {
         return m_data[index];
     }
+    // 不加&只是返回值的副本，是无法修改的右值，必须引用才能修改到原数组
     const T& operator[](int index)const
     {
         return m_data[index];
