@@ -154,5 +154,25 @@ public:
         }
         return p;
     }
-
+    Node* reverse(Node *head)
+    {
+        Node*cur = head;
+        Node*prev = nullptr;
+        while(cur!=nullptr)
+        {
+            Node*next = cur->next;
+            cur->next = prev;
+            prev = cur;
+            cur = next;
+        }
+        return prev;
+    }
+    Node* reverseRecursion(Node*head)
+    {
+        if(head == nullptr|| head->next == nullptr){return head;}
+        Node*newhead = reverseRecursion(head->next);
+        head->next->next = head;
+        head->next = nullptr;
+        return newhead;
+    }
 };

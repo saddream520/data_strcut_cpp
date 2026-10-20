@@ -29,8 +29,10 @@ class treeNode
             int size = q.size();
             for(int i = 0;i<size;i++)
             {
-            treeNode*cur =q.front();
+            // 切换层的条件是当前层的节点已经全部出队，队列中剩下的就是下一层的节点
+            treeNode*cur =q.front();//得到队头元素
             q.pop();
+            // 先入先出原则
             cout<<cur->val<<endl;
             if(cur->left!=nullptr)
             {

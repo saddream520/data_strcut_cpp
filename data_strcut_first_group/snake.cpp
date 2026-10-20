@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include<vector>
 using namespace std;
 template<typename S>
 // 首先我们需要创造出一条蛇
@@ -48,9 +49,8 @@ public:
     void display() {
         cout << "size = " << size << endl;
         for (snake* p = head->next; p != tail; p = p->next) {
-            cout << p->body << " <-> ";
+            cout << p->body << " - ";
         }
-        cout << "nullptr" << endl;
         cout << endl;
     }
     

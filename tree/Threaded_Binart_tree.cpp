@@ -35,6 +35,7 @@ public:
         }
         if(p)
         {
+            // 注意这个前驱后继是根据遍历顺序去取决的
             InThreading(p->left,pre);
             if(p->left==nullptr)//前驱线索化
             {
@@ -49,5 +50,65 @@ public:
             pre = p;
             InThreading(p->right,pre);
         }
+    }
+// 第一个被中序遍历的节点
+    treeNode*FirstNode(treeNode*p)
+    {
+        while(p->latg == Link)
+        {
+            p = p->left;
+        }
+        return p;
+    }
+// 寻找前驱
+    treeNode*InorderPrfe(treeNode*p)
+    {
+        treeNode*pre;
+        if(p->latg==Thread)
+        {
+            pre = p->left;
+        }
+        else
+        {
+            pre = p->left;
+            while(pre->rtag==Link)
+            {
+                pre = pre->right;
+            }
+        }
+        return pre;
+    }
+//  寻找后驱
+treeNode*InorderPost(treeNode*p)
+    {
+        treeNode*post;
+        if(p->rtag==Thread)
+        {
+            post = p->right;
+        }
+        else
+        {
+            post = p->right;
+            while(post->latg==Link)
+            {
+                post = post->left;
+            }
+        }
+        return post;
+    }
+
+    void Inorder(treeNode*p)
+    {
+        if(p==nullptr)
+        {
+            return;
+        }
+        treeNode*first = FirstNode(p);
+        while(first!=nullptr)
+        {
+            cout<<first->val<<" ";
+            first = InorderPost(first);//移动到后继节点
+        }
+        cout<<endl;
     }
 };
